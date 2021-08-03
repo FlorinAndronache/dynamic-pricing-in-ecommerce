@@ -22,8 +22,14 @@ let targetEcommPrices = [];
 
 //interest factors that ensures minimum profit and where posibile discount in comparison to Amazon prices
 //in case of real integration factors should be stored in the database and modified via admin page for increased price control
+//calculation of interest factor in % = 100/assigned value
+
+// eg: minInterestFactor = 20 result in 100/20 = 5% min interest
 //min 10% interest ensured
 const minInterestFactor = 10;
+
+// eg: maxInterestFactor = 4 results in 100/4 = 25% max interest
+
 //max interest ensuring price is set 5%
 const maxInterestFactor = 20;
 
@@ -75,12 +81,12 @@ for (let i = 0; i < cat.length; i++) {
 //fetch api and render
 function fetchAPI(_url, _key, _host) {
     fetch(_url, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": _key,
-            "x-rapidapi-host": _host
-        }
-    })
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": _key,
+                "x-rapidapi-host": _host
+            }
+        })
         .then(response => response.json())
         .then(data => {
             setTargetEcommPrices(data);
@@ -119,7 +125,7 @@ function calculateDynamicPrice(amazonPrice, localAquisitionPrice, localSalePrice
     console.log(`AMAZON sale price: ${amazonPrice.toFixed(2)}`)
     console.log(`Local aquisition price: ${localAquisitionPrice.toFixed(2)}`)
     console.log(`Local sale price ${localSalePrice.toFixed(2)}`)
-    //check for products that Amazon has better price
+        //check for products that Amazon has better price
     if (amazonPrice < localSalePrice) {
         //set limit to target Ecommerce aquisition price with 10% interest
         if (amazonPrice > (localAquisitionPrice + localAquisitionPrice / minInterestFactor)) {
@@ -266,6 +272,4 @@ function renderData(data) {
 
     })
 
-
 }
-
