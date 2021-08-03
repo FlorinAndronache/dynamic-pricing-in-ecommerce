@@ -1,3 +1,4 @@
+
 # Dynamic Pricing in Ecommerce
 
 A plugin that can be intergrated in E-commerce platforms of any kind to facilitate dynamic pricing referencing Amazon, Ebay etc
@@ -32,6 +33,4 @@ All you need to do is run the index.html file from CLI or by double-clicking the
 You can now simulate a dynamic pricing e-commerce environment referencing Amazon pricing for the products.
 Target e-commerce platform aquisition and sale prices are simulated by generating random prices in a range derived from Aamazon API response.
 Logs in console have been added to enhance your understanding on how the plugin works.
-
-
 
