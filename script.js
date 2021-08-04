@@ -171,6 +171,7 @@ function renderData(data) {
         let artImg = document.createElement("div");
         let artTitle = document.createElement("div");
         let artPrice = document.createElement("div");
+        let link = document.createElement("a");
         let img = document.createElement("img");
         let title = document.createElement("p");
         let price = document.createElement("p");
@@ -216,6 +217,8 @@ function renderData(data) {
         container.setAttribute("target", "_blank");
         title.innerHTML = product.title;
         img.setAttribute("src", product.imageUrl);
+        link.setAttribute("href", product.detailPageURL);
+        link.setAttribute("target", "_blank");
 
         // PROCESS PRICE
         //currency
@@ -252,7 +255,8 @@ function renderData(data) {
         priceDown.appendChild(priceDownPercent);
 
         //append elements to the article
-        artImg.appendChild(img);
+        link.appendChild(img);
+        artImg.appendChild(link);
         artTitle.appendChild(title);
         artPrice.appendChild(dynamicPrice);
         artPrice.appendChild(price);
